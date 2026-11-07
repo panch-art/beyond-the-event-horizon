@@ -1,0 +1,191 @@
+/* ========================================================
+   PROJECT CARD - NASA RESEARCH FILE DOSSIER
+   ======================================================== */
+
+.project-dossier-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  background: rgba(11, 20, 38, 0.78);
+  border: 1px solid rgba(0, 240, 255, 0.22);
+  border-top: 3px solid rgba(0, 240, 255, 0.6);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  height: 100%;
+  position: relative;
+}
+
+.project-dossier-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--electric-blue);
+  border-top-color: var(--accent-gold);
+  box-shadow: 0 0 32px rgba(0, 240, 255, 0.38), inset 0 0 16px rgba(0, 240, 255, 0.08);
+  background: rgba(16, 28, 54, 0.9);
+}
+
+/* Discovery Specimen Strip */
+.discovery-specimen-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed rgba(0, 240, 255, 0.15);
+  margin-bottom: 4px;
+}
+
+.specimen-label {
+  color: var(--accent-gold);
+}
+
+.specimen-signal {
+  color: #38bdf8;
+  letter-spacing: 0.15em;
+}
+
+.dossier-header {
+  background: rgba(7, 11, 22, 0.9);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.15);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.dossier-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.file-code {
+  font-size: 0.78rem;
+  color: var(--electric-blue);
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
+
+.file-stamp {
+  font-size: 0.62rem;
+  padding: 2px 6px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+  border-radius: 2px;
+  letter-spacing: 0.1em;
+}
+
+.dossier-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-text {
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+}
+
+.dossier-body {
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.dossier-category {
+  font-size: 0.7rem;
+  color: var(--accent-gold);
+  letter-spacing: 0.1em;
+}
+
+.dossier-title {
+  font-size: 1.45rem;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+}
+
+.project-dossier-card:hover .dossier-title {
+  color: var(--electric-blue);
+  text-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+}
+
+.dossier-desc {
+  font-size: 0.98rem;
+  color: #cbd5e1;
+  line-height: 1.65;
+}
+
+.dossier-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+.dossier-footer {
+  padding: 16px 22px;
+  background: rgba(7, 11, 22, 0.6);
+  border-top: 1px solid rgba(0, 240, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dossier-inspect-btn {
+  font-size: 0.88rem;
+  padding: 9px 20px;
+}
+
+.btn-arrow {
+  transition: transform 0.2s ease;
+}
+
+.dossier-inspect-btn:hover .btn-arrow {
+  transform: translateX(3px);
+}
+
+.dossier-external-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.external-icon-btn {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 3px;
+  background: rgba(0, 240, 255, 0.04);
+  border: 1px solid rgba(0, 240, 255, 0.18);
+  transition: all 0.2s ease;
+}
+
+.external-icon-btn:hover {
+  color: #ffffff;
+  border-color: var(--electric-blue);
+  background: rgba(0, 240, 255, 0.12);
+}
+
+.external-icon-btn.live-btn {
+  color: var(--accent-gold);
+  border-color: rgba(244, 196, 102, 0.3);
+}
+
+.external-icon-btn.live-btn:hover {
+  background: rgba(244, 196, 102, 0.15);
+  border-color: var(--accent-gold);
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(244, 196, 102, 0.3);
+}

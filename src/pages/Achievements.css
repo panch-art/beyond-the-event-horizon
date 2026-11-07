@@ -1,0 +1,354 @@
+/* ========================================================
+   ACHIEVEMENTS - ORBITAL TIMELINE ALONG A PLANETARY PATH
+   ======================================================== */
+
+.achievements-page {
+  padding: 60px 20px 90px;
+}
+
+.orbital-trajectory-deck {
+  padding: 36px 30px;
+  margin-bottom: 50px;
+  background: rgba(11, 20, 38, 0.85);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Planetary Path Horizontal View */
+.planetary-path-container {
+  position: relative;
+  padding: 24px 10px 10px;
+}
+
+.path-guide-line {
+  position: absolute;
+  top: 60px;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(245, 158, 11, 0.4),
+    rgba(56, 189, 248, 0.6) 50%,
+    rgba(192, 132, 252, 0.8) 100%
+  );
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Traveling probe along the orbital path */
+.orbital-probe-pulse {
+  position: absolute;
+  top: -2px;
+  width: 24px;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, transparent, #ffffff, var(--electric-blue));
+  box-shadow: 0 0 12px #00f0ff, 0 0 20px #00f0ff;
+  animation: probeTravel 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes probeTravel {
+  0% { left: -10%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: 105%; opacity: 0; }
+}
+
+/* Earth's Moon Satellite */
+.earth-moon-satellite {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #cbd5e1;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #ffffff;
+  top: 0;
+  left: 50%;
+  transform-origin: 0 26px;
+  animation: spinSlow 5s linear infinite;
+}
+
+.planetary-nodes-row {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+}
+
+.planet-waypoint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 90px;
+}
+
+.waypoint-orbit-badge {
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+}
+
+.planet-sphere-wrap {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.planet-sphere {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8), inset -4px -4px 8px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  z-index: 2;
+}
+
+.planet-glow-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 240, 255, 0.3);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.singularity-disc-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(244, 196, 102, 0.7);
+  box-shadow: 0 0 12px rgba(244, 196, 102, 0.8);
+  animation: spinSlow 12s linear infinite;
+}
+
+.planet-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.06em;
+}
+
+.planet-year {
+  font-size: 0.68rem;
+  color: var(--text-dim);
+}
+
+.planet-waypoint:hover .planet-sphere {
+  transform: scale(1.18);
+  box-shadow: 0 0 25px var(--electric-blue);
+}
+
+.planet-waypoint.selected .planet-sphere {
+  transform: scale(1.25);
+  box-shadow: 0 0 30px var(--accent-gold);
+}
+
+.planet-waypoint.selected .planet-name {
+  color: var(--accent-gold);
+  text-shadow: 0 0 8px rgba(244, 196, 102, 0.5);
+}
+
+.planet-waypoint.selected .planet-glow-ring {
+  border-color: var(--accent-gold);
+  animation: spinSlow 8s linear infinite;
+}
+
+/* Selected Readout Panel */
+.orbital-readout-panel {
+  background: rgba(7, 11, 22, 0.75);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 6px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.readout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.15);
+  padding-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.readout-badges {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.78rem;
+}
+
+.readout-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: #34d399;
+}
+
+.readout-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.readout-location {
+  font-size: 0.75rem;
+  color: var(--accent-gold);
+  letter-spacing: 0.1em;
+}
+
+.readout-heading {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  color: #ffffff;
+}
+
+.readout-coords {
+  font-size: 0.75rem;
+  color: var(--electric-blue);
+  letter-spacing: 0.08em;
+}
+
+.readout-desc {
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  line-height: 1.8;
+}
+
+.readout-telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.readout-metric {
+  background: rgba(11, 20, 38, 0.6);
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  border-radius: 4px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metric-label {
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+}
+
+.metric-val {
+  font-family: var(--font-sub);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* Chronology Cards List */
+.timeline-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.timeline-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 24px 28px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 3px solid rgba(0, 240, 255, 0.2);
+}
+
+.timeline-card:hover {
+  transform: translateX(6px);
+  border-left-color: var(--electric-blue);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+}
+
+.timeline-card.active {
+  border-left-color: var(--accent-gold);
+  background: rgba(16, 28, 54, 0.9);
+  box-shadow: 0 0 25px rgba(244, 196, 102, 0.2);
+}
+
+.timeline-node-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.marker-planet {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.marker-index {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+}
+
+.timeline-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.timeline-card-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.timeline-card-title {
+  font-size: 1.25rem;
+  color: #ffffff;
+}
+
+.timeline-card.active .timeline-card-title {
+  color: var(--accent-gold);
+}
+
+.timeline-card-desc {
+  font-size: 0.98rem;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .readout-telemetry-grid {
+    grid-template-columns: 1fr;
+  }
+  .timeline-card {
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px;
+  }
+}
+

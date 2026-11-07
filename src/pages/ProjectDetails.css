@@ -1,0 +1,205 @@
+/* ========================================================
+   PROJECT DETAILS - NASA DECLASSIFIED DOSSIER READOUT
+   ======================================================== */
+
+.project-details-page {
+  padding: 50px 20px 90px;
+}
+
+.details-nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.details-back-link {
+  color: var(--electric-blue);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.details-back-link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px var(--electric-blue);
+  transform: translateX(-3px);
+}
+
+.details-file-id {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  letter-spacing: 0.12em;
+}
+
+.dossier-main-container {
+  padding: 0;
+  overflow: hidden;
+  background: rgba(11, 20, 38, 0.85);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+}
+
+.details-header-banner {
+  background: rgba(7, 11, 22, 0.95);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+  padding: 32px 36px;
+}
+
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.status-label {
+  font-size: 0.75rem;
+  color: #34d399;
+  letter-spacing: 0.12em;
+}
+
+.sector-tag {
+  font-size: 0.75rem;
+  color: var(--accent-gold);
+  letter-spacing: 0.1em;
+}
+
+.details-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.details-category-sub {
+  font-size: 1.15rem;
+  color: var(--electric-blue);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.details-layout-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 36px;
+  padding: 36px;
+}
+
+.details-left-col,
+.details-right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.dossier-subpanel {
+  background: rgba(7, 11, 22, 0.6);
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  border-radius: 4px;
+  padding: 24px;
+}
+
+.subpanel-title {
+  font-size: 0.82rem;
+  color: var(--electric-blue);
+  letter-spacing: 0.14em;
+  margin-bottom: 14px;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.15);
+  padding-bottom: 8px;
+}
+
+.subpanel-body {
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.features-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.98rem;
+  color: #e2e8f0;
+  line-height: 1.6;
+}
+
+.feature-bullet {
+  color: var(--accent-gold);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.telemetry-specs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed rgba(0, 240, 255, 0.1);
+}
+
+.spec-key {
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+}
+
+.spec-val {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.details-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.details-actions-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.details-btn {
+  width: 100%;
+}
+
+.not-found-dossier {
+  padding: 50px 30px;
+  text-align: center;
+  max-width: 600px;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .details-layout-grid {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+  .details-header-banner {
+    padding: 24px;
+  }
+}

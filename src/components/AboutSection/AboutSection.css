@@ -1,0 +1,302 @@
+/* ========================================================
+   ABOUT SECTION - HOLOGRAPHIC PANELS & NEBULA BACKDROP
+   ======================================================== */
+
+.about-section {
+  position: relative;
+  padding: 90px 0;
+  overflow: hidden;
+}
+
+/* Ambient Cosmic Nebula Backdrop */
+.nebula-ambient-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 1200px;
+  height: 600px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(121, 40, 202, 0.18) 0%,
+    rgba(0, 240, 255, 0.1) 45%,
+    rgba(5, 6, 11, 0) 75%
+  );
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about-holo-grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 50px;
+  align-items: start;
+  position: relative;
+  z-index: 2;
+}
+
+/* Specialist Holographic Avatar Deck */
+.holo-avatar-deck {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.holo-ring-container {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-frame {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  border: 3px solid rgba(0, 240, 255, 0.7);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.4), inset 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+.avatar-frame::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00f0ff, transparent);
+  box-shadow: 0 0 10px #00f0ff;
+  animation: hologramAvatarScan 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes hologramAvatarScan {
+  0% { transform: translateY(0); opacity: 0; }
+  15% { opacity: 0.85; }
+  85% { opacity: 0.85; }
+  100% { transform: translateY(210px); opacity: 0; }
+}
+
+.specialist-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.specialist-avatar:hover {
+  transform: scale(1.05);
+}
+
+.avatar-fallback {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--midnight-blue), #1e293b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  color: var(--electric-blue);
+}
+
+/* Orbital Rings and Scanner */
+.orbital-hud-ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.orbital-hud-ring.outer {
+  width: 275px;
+  height: 275px;
+  border: 1px dashed rgba(0, 240, 255, 0.3);
+  animation: spinSlow 30s linear infinite;
+}
+
+.orbital-hud-ring.middle {
+  width: 245px;
+  height: 245px;
+  border: 1px dotted rgba(244, 196, 102, 0.4);
+  animation: spinReverse 45s linear infinite;
+}
+
+.scanner-sweep {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(0, 240, 255, 0.25), transparent 60deg);
+  animation: spinSlow 8s linear infinite;
+  pointer-events: none;
+}
+
+.radar-blip {
+  position: absolute;
+  top: 35px;
+  right: 45px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--electric-blue);
+  box-shadow: 0 0 10px var(--electric-blue);
+  animation: pulseLed 1.5s infinite;
+}
+
+.specialist-tag-card {
+  width: 100%;
+  padding: 18px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 4px;
+}
+
+.specialist-name {
+  font-size: 1.4rem;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+}
+
+.specialist-role {
+  font-size: 0.75rem;
+  color: var(--accent-gold);
+  letter-spacing: 0.12em;
+}
+
+.specialist-coord {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+/* Holographic Dossier Panels */
+.holo-dossier-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.holo-panel {
+  padding: 28px;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.15);
+  padding-bottom: 10px;
+}
+
+.panel-code {
+  font-size: 0.78rem;
+  color: var(--electric-blue);
+  letter-spacing: 0.1em;
+}
+
+.panel-badge {
+  font-size: 0.68rem;
+  padding: 3px 8px;
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  color: #38bdf8;
+  border-radius: 3px;
+}
+
+.panel-title {
+  font-size: 1.45rem;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.panel-text {
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+
+.panel-text:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Flight Specs Grid */
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.spec-card {
+  padding: 14px 16px;
+  background: rgba(7, 11, 22, 0.6);
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.spec-label {
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+}
+
+.spec-value {
+  font-family: var(--font-sub);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.holo-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.arrow {
+  transition: transform 0.2s ease;
+}
+
+.btn:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-holo-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .holo-avatar-deck {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .specs-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,172 @@
+/* ========================================================
+   COSMIC GALAXY CURSOR - STAR, ORBITAL RING & TRAIL
+   ======================================================== */
+
+/* Hide default cursor only on fine pointer devices without reduced motion */
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  body, 
+  a, 
+  button, 
+  input, 
+  textarea, 
+  select, 
+  [role="button"] {
+    cursor: none !important;
+  }
+}
+
+.cosmic-cursor-system {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none !important;
+  z-index: 99999;
+  overflow: hidden;
+}
+
+.cosmic-cursor-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none !important;
+  display: block;
+}
+
+/* Main Cursor Head container */
+.cosmic-cursor-head {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none !important;
+  opacity: 0;
+  transition: opacity 0.2s ease, width 0.25s cubic-bezier(0.16, 1, 0.3, 1), height 0.25s cubic-bezier(0.16, 1, 0.3, 1), margin 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.cosmic-cursor-head.is-visible {
+  opacity: 1;
+}
+
+/* 1. Normal State: Glowing Cosmic Star */
+.cursor-star-shape {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+}
+
+.star-core {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00f0ff, 0 0 18px rgba(0, 240, 255, 0.8), 0 0 25px rgba(244, 196, 102, 0.6);
+  z-index: 2;
+}
+
+.star-ray {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, #00f0ff, #ffffff, #00f0ff, transparent);
+  border-radius: 1px;
+}
+
+.star-ray.horizontal {
+  width: 14px;
+  height: 1.5px;
+}
+
+.star-ray.vertical {
+  width: 1.5px;
+  height: 14px;
+  background: linear-gradient(180deg, transparent, #00f0ff, #ffffff, #00f0ff, transparent);
+}
+
+/* 2. Hover State: Delicate Glowing Orbital Ring */
+.cursor-orbital-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.5) rotate(0deg);
+  transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none !important;
+}
+
+.orbital-ring-line {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px dashed #00f0ff;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.6), inset 0 0 8px rgba(0, 240, 255, 0.3);
+  animation: spinSlow 8s linear infinite;
+}
+
+.orbital-satellite {
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  margin-left: -2px;
+  background: #f4c466;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #f4c466;
+  animation: spinSlow 3s linear infinite;
+}
+
+/* Hover active state */
+.cosmic-cursor-head.is-hovering {
+  width: 36px;
+  height: 36px;
+  margin-top: -18px;
+  margin-left: -18px;
+}
+
+.cosmic-cursor-head.is-hovering .cursor-star-shape {
+  transform: scale(0.65);
+}
+
+.cosmic-cursor-head.is-hovering .star-core {
+  background: #f4c466;
+  box-shadow: 0 0 10px #f4c466;
+}
+
+.cosmic-cursor-head.is-hovering .cursor-orbital-ring {
+  opacity: 1;
+  transform: scale(1) rotate(45deg);
+}
+
+/* Clicking feedback */
+.cosmic-cursor-head.is-clicking {
+  transform: scale(0.82) !important;
+  transition: transform 0.08s ease;
+}
+
+.cosmic-cursor-head.is-clicking .star-core {
+  box-shadow: 0 0 20px #ffffff, 0 0 30px #00f0ff;
+}
+
+/* Touch and mobile fallback */
+@media (hover: none) or (pointer: coarse) {
+  .cosmic-cursor-system {
+    display: none !important;
+  }
+}
+

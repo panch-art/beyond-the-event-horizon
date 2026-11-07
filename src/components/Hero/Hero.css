@@ -1,0 +1,328 @@
+/* ========================================================
+   HERO SECTION - BLACK HOLE ACCRETION DISK & EVENT HORIZON
+   ======================================================== */
+
+.hero-section {
+  position: relative;
+  padding: 60px 0 90px;
+  min-height: calc(100vh - 110px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr;
+  align-items: center;
+  gap: 50px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Left Column Content */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mission-classification {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hud-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 4px 10px;
+  border-radius: 3px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #34d399;
+}
+
+.pulse-badge {
+  animation: pulseLed 2s infinite;
+}
+
+.mission-id {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: var(--electric-blue);
+}
+
+.hero-callsign {
+  font-family: var(--font-heading);
+  font-size: clamp(3.2rem, 7vw, 5.6rem);
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  line-height: 0.95;
+  background: linear-gradient(135deg, #ffffff 30%, #38bdf8 65%, #f4c466 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 35px rgba(0, 240, 255, 0.35));
+  position: relative;
+}
+
+.hero-concept {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.concept-prefix {
+  font-size: 0.85rem;
+  color: var(--accent-gold);
+  letter-spacing: 0.15em;
+}
+
+.concept-text {
+  font-family: var(--font-sub);
+  font-size: clamp(1.4rem, 2.8vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--electric-blue);
+  text-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+}
+
+.hero-brief {
+  font-size: 1.15rem;
+  color: #cbd5e1;
+  line-height: 1.8;
+  max-width: 600px;
+}
+
+/* Call to Action Buttons */
+.hero-cta-group {
+  display: flex;
+  gap: 18px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.hero-cta-btn {
+  font-size: 1.15rem;
+  padding: 16px 36px;
+  letter-spacing: 0.14em;
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.5), inset 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+.hero-cta-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 40px rgba(0, 240, 255, 0.8), inset 0 0 25px rgba(0, 240, 255, 0.5);
+}
+
+/* Telemetry HUD metrics dock */
+.hero-telemetry-hud {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  padding: 16px 20px;
+  margin-top: 20px;
+  max-width: 600px;
+  background: rgba(11, 20, 38, 0.7);
+  border-color: rgba(0, 240, 255, 0.25);
+}
+
+.telemetry-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+}
+
+.stat-value {
+  font-family: var(--font-sub);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: 0.05em;
+}
+
+.text-cyan {
+  color: var(--electric-blue);
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+}
+
+.text-gold {
+  color: var(--accent-gold);
+  text-shadow: 0 0 10px rgba(244, 196, 102, 0.4);
+}
+
+.text-emerald {
+  color: #34d399;
+  text-shadow: 0 0 10px rgba(52, 211, 153, 0.4);
+}
+
+/* Right Column Black Hole Visual */
+.blackhole-visual-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 480px;
+}
+
+.accretion-canvas {
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 1 / 1;
+  display: block;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 0 35px rgba(0, 240, 255, 0.3));
+}
+
+/* Cybernetic Targeting Reticle */
+.blackhole-reticle {
+  position: absolute;
+  inset: 15px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.reticle-corner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: rgba(0, 240, 255, 0.5);
+}
+
+.reticle-corner.tl {
+  top: 0;
+  left: 0;
+  border-top: 2px solid var(--electric-blue);
+  border-left: 2px solid var(--electric-blue);
+}
+
+.reticle-corner.tr {
+  top: 0;
+  right: 0;
+  border-top: 2px solid var(--electric-blue);
+  border-right: 2px solid var(--electric-blue);
+}
+
+.reticle-corner.bl {
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid var(--electric-blue);
+  border-left: 2px solid var(--electric-blue);
+}
+
+.reticle-corner.br {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid var(--electric-blue);
+  border-right: 2px solid var(--electric-blue);
+}
+
+.reticle-label {
+  position: absolute;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: rgba(0, 240, 255, 0.6);
+}
+
+.reticle-label.top {
+  top: -6px;
+  right: 30px;
+}
+
+.reticle-label.bottom {
+  bottom: -6px;
+  left: 30px;
+}
+
+/* Ambient Orbital Concentric Rings */
+.blackhole-rings {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.orbital-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 240, 255, 0.15);
+}
+
+.orbital-ring.ring-1 {
+  width: 82%;
+  height: 82%;
+  animation: spinSlow 40s linear infinite;
+}
+
+.orbital-ring.ring-2 {
+  width: 104%;
+  height: 104%;
+  border-color: rgba(244, 196, 102, 0.12);
+  border-style: dotted;
+  animation: spinReverse 60s linear infinite;
+}
+
+.orbital-ring.ring-3 {
+  width: 125%;
+  height: 125%;
+  border-color: rgba(121, 40, 202, 0.1);
+  animation: spinSlow 90s linear infinite;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .hero-content {
+    align-items: center;
+  }
+
+  .hero-concept {
+    justify-content: center;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+  }
+
+  .hero-telemetry-hud {
+    width: 100%;
+  }
+
+  .blackhole-visual-wrapper {
+    min-height: 380px;
+  }
+}
+
+@media (max-width: 580px) {
+  .hero-telemetry-hud {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta-btn,
+  .btn-secondary {
+    width: 100%;
+  }
+}

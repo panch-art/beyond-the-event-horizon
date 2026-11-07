@@ -1,0 +1,21 @@
+/* ========================================================
+   ABOUT PAGE - COSMIC NEBULA & TELEMETRY
+   ======================================================== */
+
+.about-page {
+  padding-bottom: 80px;
+}
+
+.about-skills-section {
+  padding: 60px 20px;
+}
+
+.about-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.about-github-section {
+  padding: 60px 20px;
+}

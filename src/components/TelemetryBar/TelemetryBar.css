@@ -1,0 +1,109 @@
+.telemetry-bar {
+  background: rgba(5, 6, 11, 0.95);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.15);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted, #94a3b8);
+  position: relative;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.telemetry-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.telemetry-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.telemetry-led {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  display: inline-block;
+}
+
+.telemetry-led.pulsing {
+  animation: pulseLed 1.8s infinite;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+}
+
+@keyframes pulseLed {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.telemetry-label {
+  color: rgba(148, 163, 184, 0.7);
+}
+
+.telemetry-value {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.telemetry-value.active {
+  color: #00f0ff;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
+.telemetry-value.time-code {
+  color: #f4c466;
+  font-weight: bold;
+}
+
+.telemetry-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.telemetry-audio-btn {
+  background: rgba(0, 240, 255, 0.05);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  color: #38bdf8;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.68rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.telemetry-audio-btn:hover {
+  background: rgba(0, 240, 255, 0.15);
+  border-color: #00f0ff;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+  color: #ffffff;
+}
+
+.telemetry-audio-btn.active {
+  background: rgba(0, 240, 255, 0.2);
+  border-color: #00f0ff;
+  color: #00f0ff;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+  .telemetry-inner {
+    padding: 4px 12px;
+    font-size: 0.65rem;
+  }
+}
+

@@ -1,0 +1,321 @@
+/* ========================================================
+   NAVBAR - NASA MISSION CONTROL HUD DOCK
+   ======================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background: rgba(5, 6, 11, 0.85);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: all 0.3s ease;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+/* Brand Logo */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-main);
+}
+
+.logo-symbol {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+}
+
+.logo-bracket {
+  color: var(--electric-blue);
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+}
+
+.logo-core {
+  background: linear-gradient(135deg, #ffffff, var(--accent-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.1em;
+}
+
+.logo-beacon {
+  position: absolute;
+  top: -2px;
+  right: -3px;
+  width: 5px;
+  height: 5px;
+  background: var(--electric-blue);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--electric-blue);
+  animation: pulseLed 1.5s infinite;
+}
+
+.logo-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #ffffff;
+}
+
+.logo-sub {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--electric-blue);
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 28px;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sub);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  padding: 8px 0;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.nav-code {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: rgba(0, 240, 255, 0.45);
+  transition: color 0.2s ease;
+}
+
+.nav-text {
+  transition: color 0.2s ease;
+}
+
+.nav-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--electric-blue);
+  box-shadow: 0 0 8px var(--electric-blue);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover {
+  color: #ffffff;
+}
+
+.nav-link:hover .nav-code {
+  color: var(--electric-blue);
+}
+
+.nav-link:hover .nav-indicator {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: #ffffff;
+}
+
+.nav-link.active .nav-code {
+  color: var(--accent-gold);
+}
+
+.nav-link.active .nav-text {
+  color: var(--electric-blue);
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+}
+
+.nav-link.active .nav-indicator {
+  width: 100%;
+  background: linear-gradient(90deg, var(--accent-gold), var(--electric-blue));
+}
+
+/* Right Controls */
+.navbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hud-toggle-btn {
+  background: rgba(0, 240, 255, 0.06);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  color: var(--electric-blue);
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.hud-toggle-btn:hover {
+  background: rgba(0, 240, 255, 0.15);
+  border-color: var(--electric-blue);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+  color: #ffffff;
+}
+
+.toggle-icon {
+  font-size: 1rem;
+  color: var(--accent-gold);
+}
+
+/* Mobile Toggle Hamburger */
+.menu-toggle {
+  display: none;
+  background: rgba(11, 20, 38, 0.8);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  width: 42px;
+  height: 42px;
+  border-radius: 4px;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0;
+}
+
+.hamburger-bar {
+  width: 20px;
+  height: 2px;
+  background: var(--electric-blue);
+  box-shadow: 0 0 5px var(--electric-blue);
+  transition: all 0.3s ease;
+}
+
+.mobile-hud-header,
+.mobile-hud-footer {
+  display: none;
+}
+
+/* Responsive Mobile Navigation */
+@media (max-width: 992px) {
+  .nav-links {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 860px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: min(320px, 85vw);
+    height: 100vh;
+    background: rgba(5, 6, 11, 0.98);
+    border-left: 1px solid var(--electric-blue);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 20px;
+    gap: 16px;
+    transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 999;
+  }
+
+  .nav-links.open {
+    right: 0;
+  }
+
+  .mobile-hud-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 16px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--electric-blue);
+  }
+
+  .close-menu-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  .close-menu-btn:hover {
+    color: var(--electric-blue);
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 10px 12px;
+    background: rgba(0, 240, 255, 0.04);
+    border: 1px solid rgba(0, 240, 255, 0.1);
+    border-radius: 4px;
+  }
+
+  .nav-link.active {
+    background: rgba(0, 240, 255, 0.12);
+    border-color: var(--electric-blue);
+  }
+
+  .mobile-hud-footer {
+    display: block;
+    margin-top: auto;
+    width: 100%;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0, 240, 255, 0.2);
+  }
+
+  .mobile-telemetry {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--text-dim);
+  }
+}

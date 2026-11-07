@@ -1,0 +1,230 @@
+/* ========================================================
+   CONTACT FORM - QUANTUM COMMAND TERMINAL
+   ======================================================== */
+
+.quantum-terminal-wrapper {
+  padding: 0;
+  overflow: hidden;
+  background: rgba(11, 20, 38, 0.85);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  box-shadow: 0 0 35px rgba(0, 240, 255, 0.15);
+}
+
+.terminal-header-bar {
+  background: rgba(7, 11, 22, 0.95);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.terminal-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.terminal-prompt {
+  font-size: 0.8rem;
+  color: var(--electric-blue);
+  letter-spacing: 0.08em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.terminal-prompt::after {
+  content: ' ▌';
+  color: var(--accent-gold);
+  animation: pulseLed 1s infinite;
+}
+
+.terminal-baud {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+}
+
+.terminal-form-body {
+  padding: 32px 36px;
+}
+
+.contact-terminal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.terminal-field-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-label {
+  font-size: 0.78rem;
+  color: var(--electric-blue);
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.field-code {
+  color: var(--accent-gold);
+}
+
+.terminal-field-group input,
+.terminal-field-group textarea {
+  background: rgba(7, 11, 22, 0.8);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 4px;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 14px 18px;
+  transition: all 0.2s ease;
+}
+
+.terminal-field-group input:focus,
+.terminal-field-group textarea:focus {
+  border-color: var(--electric-blue);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.35);
+  background: rgba(16, 28, 54, 0.9);
+}
+
+.terminal-field-group.invalid input,
+.terminal-field-group.invalid textarea {
+  border-color: #ef4444;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+}
+
+.terminal-error {
+  color: #f87171;
+  font-size: 0.75rem;
+  margin-top: 6px;
+  letter-spacing: 0.06em;
+}
+
+/* Terminal Live Feed during send */
+.terminal-live-feed {
+  background: rgba(5, 6, 11, 0.9);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 4px;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.78rem;
+}
+
+.feed-line {
+  color: var(--electric-blue);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.feed-arrow {
+  color: var(--accent-gold);
+}
+
+.form-submit-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.terminal-submit-btn {
+  padding: 14px 34px;
+  font-size: 1.05rem;
+}
+
+.terminal-encryption-badge {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+}
+
+/* Success View */
+.transmission-success-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+  padding: 20px 0;
+}
+
+.success-icon-wrap {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.15);
+  border: 2px solid #10b981;
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.success-glyph {
+  font-size: 2rem;
+  color: #10b981;
+}
+
+.success-title {
+  font-size: 1.8rem;
+  color: #ffffff;
+  letter-spacing: 0.1em;
+}
+
+.success-message {
+  max-width: 540px;
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.terminal-log-output {
+  width: 100%;
+  max-width: 580px;
+  background: rgba(7, 11, 22, 0.85);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 4px;
+  padding: 14px 18px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: #38bdf8;
+}
+
+.log-prefix {
+  color: var(--accent-gold);
+}
+
+.success-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .terminal-form-body {
+    padding: 24px 20px;
+  }
+  .form-submit-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
